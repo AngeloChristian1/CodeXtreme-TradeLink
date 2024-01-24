@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import * as yup from "yup"
 import { Formik } from 'formik';
+import { FaRegEye } from "react-icons/fa6";
+import { FaRegEyeSlash } from "react-icons/fa6";
+
 
 // Replace with your actual Mongoose schema
 // const UserSchema = new mongoose.Schema({
@@ -19,16 +22,10 @@ const signUpSchema = yup.object().shape({
     .string()
     .required('Email is required')
     .email('Please enter a valid email').matches(emailPattern,"Please enter a valid email"),
-  name: yup
+  
+    name: yup
     .string()
     .required('Name is required'),
-
-    phone: yup
-    .string()
-    .required('Phone is required')
-    .matches(phonePattern,"Please enter a valid phone number")
-    .min(10, 'Phone to small')
-    .max(10, 'Phone to long'),
     
   password: yup
     .string()
@@ -37,33 +34,40 @@ const signUpSchema = yup.object().shape({
 });
 
 function SignUpPage() {
+    const [showPassword, setShowPassword] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
-  const handleSubmit = async (e, values) => {
-    e.preventDefault();
-    console.log('submited', values.email)
-    localStorage.setItem("name", values.email)
+    const handleRegister = async (values) => {
+      
+        axios({
+          method: "POST",
+          url: `https://trade-center.onrender.com/api/v1/auth/sign-up`,
+          data: {
+            email:values.email,
+            name:values.name,
+            password:values.password,
+            role:"user"
+          },
+        })
+          .then((response) => {
+            console.log(response);
+            setIsLoading(false)
+          })
+          .catch((error) => {
+       console.log("error", error)
+            console.log("error message: ", error.message);
+          });
+      };
 
-    try {
-
-      const registeredUser = await axios.post("/api/users",
-
-       );
-
-      // Handle successful registration (e.g., redirect to sign-in)
-      console.log("User registered successfully:", registeredUser.data);
-    } catch (error) {
-      // Handle registration errors
-      console.error("Registration error:", error);
-    }
-  };
 
   return (
     <Formik
-    initialValues={{name:"", email:'' ,phone:"", password:""}}
+    initialValues={{name:"", email:'', password:""}}
     validateOnMount={true}
     
     onSubmit={values =>{
-        handleSubmit(values)
+        setIsLoading(true);
+        handleRegister(values)
     }}
 
     validationSchema={signUpSchema}
@@ -76,14 +80,14 @@ function SignUpPage() {
         <div>
           <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">Create Account</h2>
           <p className="mt-2 text-center text-sm text-gray-500">
-            Already have an account?{" "}
+            Already have an account?
             <a href="/signin" className="font-medium text-indigo-600 hover:text-indigo-500">
               Sign in
             </a>
           </p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          {/* Input fields based on your schema */}
+         
           <div>
           <input
           type="text"
@@ -91,47 +95,51 @@ function SignUpPage() {
           value={values.name}
           onChange={handleChange('name')}
           placeholder="Username"
-          required
+          onBlur={handleBlur('name')}
           className="rounded-md shadow-sm px-3 py-2 text-gray-700 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
         />
-
-          <p>{errors.name && touched.name ? `${errors.name}` : ""}</p>
+          <p className="text-xs text-red-600">{errors.name && touched.name ? `${errors.name}` : ""}</p>
           </div>
-          
           <div>
-          <input
+          <div >
+            <input
           type="email"
           name="email"
           value={values.email}
           onChange={handleChange('email')}
           placeholder="Email"
-          required
+          onBlur={handleBlur('email')}
           className="rounded-md shadow-sm px-3 py-2 text-gray-700 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
         />
-          <p>{errors.email && touched.email ? `${errors.email}` : ""}</p>
           </div>
-
-
+          <p className="text-xs text-red-600">{errors.email && touched.email ? `${errors.email}` : ""}</p>
+          </div>
           <div>
+          <div 
+          className="flex flex-row items-center justify-between "
+          >
           <input
-          type="password"
+          type={!showPassword? "password":"text"}
           name="password"
           value={values.password}
           onChange={handleChange('password')}
           placeholder="Password"
-          required
-          className="rounded-md shadow-sm px-3 py-2 text-gray-700 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm"
+          onBlur={handleBlur('password')}
+          className="w-[90%] p-1 outline-none rounded-md shadow-sm px-3 py-2 text-gray-700 focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm"
         />
-          <p>{errors.password && touched.password ? `${errors.password}` : ""}</p>
+    
+          {!showPassword?<FaRegEye onClick={()=>{setShowPassword(!showPassword)}}/>:<FaRegEyeSlash onClick={()=>{setShowPassword(!showPassword)}}/>}
           </div>
-         
-          {/* Add more fields as needed */}
+          
+          <p className="text-xs text-red-600">{errors.password && touched.password ? `${errors.password}` : ""}</p>
+          </div>
+
           <button
-            type="submit"
-            className="w-full flex justify-center rounded-md bg-indigo-600 py-2 text-white text-sm font-medium shadow-sm hover:bg-indigo-700"
-          >
-            Sign Up
-          </button>
+          type="submit"
+          className="w-full flex justify-center rounded-md bg-indigo-600 py-2 text-white text-sm font-medium shadow-sm hover:bg-indigo-700" 
+        >
+         {isLoading?"Loading..." :'Sign Up'}
+        </button>
         </form>
       </div>
     </div>
