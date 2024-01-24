@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react'
 import HomePage from "./pages/HomePage"
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
+import ErrorPage from './pages/ErrorPage'
 import './App.css'
 import { useLocation } from 'react-router-dom'
-import { HashRouter as Router, BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter , BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 
 function ScrollToTopOnPageChange() {
@@ -26,6 +27,7 @@ function App() {
     <Route index  path="/" element={<HomePage />}/>
     <Route  path="/signin" element={<LoginPage />}/>
     <Route  path="/signup" element={<SignUpPage />}/>
+    <Route exact path="/*" element={<ErrorPage/>}/>
 
     </Routes>
     </Router>
