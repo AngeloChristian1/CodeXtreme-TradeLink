@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../components/NavBar';
 
 function HomePage() {
+
+    let name = localStorage.getItem('name')
   return (
     <div className="bg-gray-100 h-screen p-10">
-      <header className="text-center">
-        <h1 className="text-3xl font-bold text-gray-800">Local Business Investments</h1>
-        <p className="text-xl mt-2 text-gray-600">Find investment opportunities to support your local community</p>
-      </header>
+      <Navbar/>
 
       <header className='w-full '>
       
@@ -15,7 +15,7 @@ function HomePage() {
 
       <main className="mt-16">
         <section className="bg-white p-8 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-4">Featured Businesses</h2>
+          <h2 className="text-2xl font-bold mb-4">{name?name:'Featured Businesses'}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Dynamically render featured businesses */}
             <div className="border p-4 rounded-lg hover:shadow-lg">
