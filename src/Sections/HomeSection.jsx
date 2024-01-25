@@ -5,7 +5,7 @@ import people3 from '../assets/images/people3.webp'
 
 function HomeSection() {
   return (
-    <div className='w-full bg-darkest h-[100vh] p-5 '>
+    <div className='w-full bg-darkest h-auto p-5 '>
     <div className='w-full bg-dark h-full rounded-2xl flex flex-row p-10'>
     <div className='w-[50%] flex flex-col items-start'>
     <div className='rounded-full py-[5px] px-4 bg-darkest w-auto rounded-bl-none my-2'><p className='text-white text-xs'>Welcome</p></div>

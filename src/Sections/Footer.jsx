@@ -32,14 +32,10 @@ function Footer() {
      <p className='text-sm text-gray-400 text-start hover:text-gray-200 transition-all'><Link to="">Resources</Link></p>
      <p className='text-sm text-gray-400 text-start hover:text-gray-200 transition-all'><Link to="">Terms</Link></p>
      <p className='text-sm text-gray-400 text-start hover:text-gray-200 transition-all'><Link to="">Privacy Policy</Link></p>
-     <p className='text-sm text-gray-400 text-start hover:text-gray-200 transition-all'><Link to="">Sitemap</Link></p>
      </div>
 
     <div className='items-start justify-center flex flex-col w-[80%] bigphone:w-[20%] mt-4 bigphone:mt-1 space-y-2 mb-5 phone:mb-0'>
-<div className='flex flex-row space-x-2'>
-<Link to=""><FaLinkedinIn className='text-gray-200'/></Link>
-<Link to=""><FaFacebookF className='text-gray-200'/></Link>
-</div>    
+   
 <div className='flex flex-row space-x-1'><p className='text-sm text-gray-200 text-start font-semibold'>Email:</p><p className='text-sm text-gray-400 text-start hover:text-gray-200 transition-all'><Link to={"mailto:team@theartemisai.com"}>trade@gmail.com</Link></p></div>
 <div className='flex flex-row space-x-1'><p className='text-sm text-gray-200 text-start font-semibold'>Phone:</p><p className='text-sm text-gray-400 text-start hover:text-gray-200 transition-all'><Link to="tel:+250 798 971 331"> +250 7432 971 571</Link></p></div>
 
@@ -47,6 +43,10 @@ function Footer() {
 
 <p className='text-sm text-gray-400 text-start'>Kigali, Rwanda</p>
 </div>
+<div className='flex flex-row space-x-2'>
+<Link to="" className="bg-darkest p-2 rounded-full"><FaLinkedinIn className='text-gray-200'/></Link>
+<Link to="" className="bg-darkest p-2 rounded-full"><FaFacebookF className='text-gray-200'/></Link>
+</div> 
     </div>
 
     

@@ -8,11 +8,11 @@ import { CiCoinInsert } from 'react-icons/ci'
 function WhatWeDoSection() {
    
   return (
-    <div className='w-full bg-darkest h-[100vh] p-5 '>
+    <div className='w-full bg-darkest h-auto p-5 my-5'>
     
     <div className='w-full  rounded-2xl flex flex-row h-[30%]  mb-3'>
     <div className='w-full flex flex-col items-start '>
-    <div className='rounded-full py-[5px] px-4 bg-darkest w-auto rounded-bl-none my-2'><p className='text-white text-xs'>What we do</p></div>
+    <div className='rounded-full py-[5px] px-4 bg-dark w-auto rounded-bl-none my-2'><p className='text-white text-xs'>What we do</p></div>
 
     <div className='flex flex-row'>
     <div className='my-2 w-[50%]'><h3 className='text-4xl text-white  font-bold'>Let us make your business a sucess</h3></div>
@@ -23,7 +23,7 @@ function WhatWeDoSection() {
     </div>
     </div>
 
-    <div className='flex flex-row h-[70%] mt-4'>
+    <div className='flex flex-row h-[70%] mt-4 justify-between'>
     <div className='w-[45%] flex flex-col items-center justify-center relative'>
     <ServiceCard 
     Icon={<CiCoinInsert className='text-grey text-2xl'/ >}
@@ -43,11 +43,11 @@ function WhatWeDoSection() {
     </div>
 
     <div className='w-[50%] flex flex-row items-center justify-center relative'>
-    <img src={people} className='w-[40%] h-[100%] rounded-2xl object-cover'/>
+    <img src={people} className='w-[50%] h-[100%] rounded-2xl object-cover m-1'/>
     <div className='w-[50%] h-full flex flex-col'>
-    <img src={people} className='w-[80%] m-1 h-[50%] rounded-2xl object-cover'/>
+    <img src={people} className='w-[100%] m-1 h-[50%] rounded-2xl object-cover'/>
 
-    <img src={people3} className='w-[80%] m-1 h-[50%] rounded-2xl object-cover  '/>
+    <img src={people3} className='w-[100%] m-1 h-[50%] rounded-2xl object-cover  '/>
     
     </div>
     </div>
