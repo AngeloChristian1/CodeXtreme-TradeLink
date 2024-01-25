@@ -1,17 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/NavBar';
+import HomeSection from '../Sections/HomeSection';
 
 function HomePage() {
 
     let name = localStorage.getItem('name')
   return (
-    <div className="bg-gray-100 h-screen p-10">
+    <div className="bg-darkest  p-5 h-full">
       <Navbar/>
-
-      <header className='w-full '>
-      
-      </header>
+      <HomeSection/>
 
       <main className="mt-16">
         <section className="bg-white p-8 rounded-lg shadow-lg">

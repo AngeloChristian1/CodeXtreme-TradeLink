@@ -9,7 +9,11 @@ export default {
   theme: {
     extend: {
       colors:{
-        blacky:"#262626"
+        blacky:"#262626",
+        dark:"#23202A",
+        darker:"#1E1B24",
+        darkest:"#19181E",
+        grey:"#999CB4"
       },
       screens:{
         phone:"450px",

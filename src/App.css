@@ -1,0 +1,18 @@
+*{
+    font-family: 'Inter', sans-serif;
+/* font-family: 'Montserrat', sans-serif; */
+font-size: 18px;
+
+}
+
+html{
+
+}
+#active{
+    background: #23202A;
+    font-weight: 500;
+    /* background: red;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-weight: 600; */
+}
