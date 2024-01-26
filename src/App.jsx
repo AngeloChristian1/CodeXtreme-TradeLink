@@ -1,8 +1,10 @@
+import React from 'react'
 import { useState, useEffect } from 'react'
 import HomePage from "./pages/HomePage"
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
 import ErrorPage from './pages/ErrorPage'
+import Company from './pages/Company'
 import './App.css'
 import { useLocation } from 'react-router-dom'
 import { HashRouter , BrowserRouter as Router, Route, Routes } from 'react-router-dom'
@@ -28,7 +30,7 @@ function App() {
     <Route  path="/signin" element={<LoginPage />}/>
     <Route  path="/signup" element={<SignUpPage />}/>
     <Route exact path="/*" element={<ErrorPage/>}/>
-
+    <Route path='/company' element={<Company/>}/>
     </Routes>
     </Router>
   )

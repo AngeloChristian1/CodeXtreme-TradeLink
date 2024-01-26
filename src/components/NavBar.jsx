@@ -4,7 +4,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { FaCross } from 'react-icons/fa';
 import { RxCross2 } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
-import {HashLink} from "react-router-hash-link"
+
 
 function Navbar(props) {
     const [hedersShown, setIsHeaderShown] = useState(false)
@@ -24,8 +24,8 @@ function Navbar(props) {
     <Link to="/about"><p className='text-sm cursor-pointer  rounded-full py-[3px] px-3 text-white' id={active ==="About"?'active':""}> About Us</p></Link>
     </div>
     <div className='flex flex-row'>
-    <Link to="/signin" smooth><button className='hidden tablet:flex text-white text-xs p-2 px-4  rounded-full text-center items-center justify-center'>Login</button></Link>
-    <Link to="/signup" smooth><button className='hidden tablet:flex text-dark text-bold text-xs p-2 px-4 bg-white rounded-full text-center items-center justify-center'>Register</button></Link>
+    <Link to="/signin"><button className='hidden tablet:flex text-white text-xs p-2 px-4  rounded-full text-center items-center justify-center'>Login</button></Link>
+    <Link to="/signup"><button className='hidden tablet:flex text-dark text-bold text-xs p-2 px-4 bg-white rounded-full text-center items-center justify-center'>Register</button></Link>
     
     </div>
     <button onClick={()=>setIsHeaderShown(!hedersShown)} className='tablet:hidden'>{!hedersShown? <RxHamburgerMenu className='text-3xl '/>:<RxCross2 className='text-3xl '/>}</button>
@@ -36,7 +36,7 @@ function Navbar(props) {
     <Link to="/products"> <p className='text-sm cursor-pointer  rounded-full py-[3px] px-3 text-white' id={active ==="Product"?'active':""}> Products</p></Link>
     <Link to="/contact"> <p className='text-sm cursor-pointer  rounded-full py-[3px] px-3 text-white' id={active ==="Contact"?'active':""}> Contact</p></Link>
     <Link to="/about"> <p className='text-sm cursor-pointer  rounded-full py-[3px] px-3 text-white' id={active ==="About"?'active':""}> About Us</p></Link>
-    <HashLink to="#contact" smooth><button className='text-white text-xs p-2 px-4 bg-blacky rounded-full'>Let's Talk </button></HashLink>
+    <Link to="/contact"><button className='text-white text-xs p-2 px-4 bg-blacky rounded-full'>Let's Talk </button></Link>
 
     </div>}
     </div>
