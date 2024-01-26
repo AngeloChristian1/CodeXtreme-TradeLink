@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import * as yup from "yup"
 import { Formik } from 'formik';
 import axios from "axios";
-
+import Footer from "../Sections/Footer";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from "react-router-dom";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import Navbar from "../components/NavBar";
 
 function LoginPage() {
 
@@ -29,7 +30,7 @@ const signUpSchema = yup.object().shape({
 });
 
 const handleLogin = async (values) => {
-    console.log("values", values)
+    // console.log("values", values)
     axios({
       method: "POST",
       url: `https://trade-center.onrender.com/api/v1/auth/sign-in`,
@@ -44,6 +45,7 @@ const handleLogin = async (values) => {
         setIsLoading(false)
       })
       .catch((error) => {
+        console.log('error occured')
    console.log("error", error)
    setIsLoading(false);
       });
@@ -51,10 +53,12 @@ const handleLogin = async (values) => {
 
 
   return (
+    <div className="bg-darkest  p-5 h-full">
+    <Navbar/>
     <Formik
     initialValues={{ email: '', password:""}}
     validateOnMount={true}
-    
+    // ?
     onSubmit={values =>{
         setIsLoading(true);
         handleLogin(values)
@@ -63,16 +67,11 @@ const handleLogin = async (values) => {
     validationSchema={signUpSchema}
   >
   {({ handleChange, handleBlur, handleSubmit, values, touched, errors, isValid }) => (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center  px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">Sign In</h2>
-          <p className="mt-2 text-center text-sm text-gray-500">
-            Or 
-            <Link to="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
-                Create new account
-            </Link>
-          </p>
+          <h2 className="mt-6 text-center text-3xl font-bold text-white">Sign In</h2>
+    
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
         <div>
@@ -87,6 +86,7 @@ const handleLogin = async (values) => {
           />
           <p className="text-xs text-red-600">{errors.email && touched.email ? `${errors.email}` : ""}</p>
         </div>  
+       
         <div>
         <div 
         className="flex flex-row items-center justify-between "
@@ -98,13 +98,27 @@ const handleLogin = async (values) => {
         onChange={handleChange('password')}
         placeholder="Password"
         onBlur={handleBlur('password')}
-        className="w-[90%] p-1 outline-none rounded-md shadow-sm px-3 py-2 text-gray-700 focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm"
+        className="w-full p-1 outline-none rounded-md shadow-sm px-3 py-2 text-gray-700 focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm"
       />
   
-        {!showPassword?<FaRegEye onClick={()=>{setShowPassword(!showPassword)}}/>:<FaRegEyeSlash onClick={()=>{setShowPassword(!showPassword)}}/>}
+       
         </div>
-        
+        <div className="flex flex-row justify-between items-center" >
         <p className="text-xs text-red-600">{errors.password && touched.password ? `${errors.password}` : ""}</p>
+        
+        <div>{
+          !showPassword?
+          <div className="flex flex-row space-x-3 my-1">
+          <FaRegEye onClick={()=>{setShowPassword(!showPassword)}} className="text-grey "/>
+          <p className="text-grey text-xs">Show Password</p></div>
+
+          :
+          <div className="flex flex-row space-x-3 my-1">
+          <FaRegEyeSlash onClick={()=>{setShowPassword(!showPassword)}} className="text-grey "/>
+          <p className="text-grey text-xs">Hide Password</p></div>
+        }
+          </div>
+        </div>
         </div>
          
           <button
@@ -114,26 +128,20 @@ const handleLogin = async (values) => {
            {isLoading?"Loading..." :'Sign In'}
           </button>
         </form>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              id="remember"
-              name="remember"
-              className="mr-2 rounded focus:ring-indigo-500 h-4 w-4 text-indigo-600 shadow-sm"
-            />
-            <label htmlFor="remember" className="text-sm font-medium text-gray-700">
-              Remember me
-            </label>
-          </div>
-          <div className="text-sm font-medium text-gray-500 hover:text-indigo-500">
-            <a href="/forgot-password">Forgot your password?</a>
-          </div>
-        </div>
+
       </div>
     </div>
     )}
       </Formik>
+   
+    <p className=" text-center text-sm text-grey">
+    Or 
+    <Link to="/signup" className="font-medium text-white hover:text-grey ml-2">
+        Create new account
+    </Link>
+  </p>
+      <Footer/>
+    </div>
   );
 }
 

@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import * as yup from "yup"
 import { Formik } from 'formik';
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
+import Footer from "../Sections/Footer";
+import { MdCheckBoxOutlineBlank } from "react-icons/md";
+import { MdCheckBox } from "react-icons/md";
+import Navbar from "../components/NavBar";
 
 
 // Replace with your actual Mongoose schema
@@ -15,7 +19,7 @@ import { FaRegEyeSlash } from "react-icons/fa6";
 // });
 
 const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const phonePattern =/(0(7[2|3|8|9][0-9]))\d{5}/
+// const phonePattern =/(0(7[2|3|8|9][0-9]))\d{5}/
 
 const signUpSchema = yup.object().shape({
   email: yup
@@ -61,6 +65,8 @@ function SignUpPage() {
 
 
   return (
+    <div className="bg-darkest  p-5 h-full">
+    <Navbar/>
     <Formik
     initialValues={{name:"", email:'', password:""}}
     validateOnMount={true}
@@ -75,16 +81,11 @@ function SignUpPage() {
   {({ handleChange, handleBlur, handleSubmit, values, touched, errors, isValid }) => (
     
    
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center  px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">Create Account</h2>
-          <p className="mt-2 text-center text-sm text-gray-500">
-            Already have an account?
-            <a href="/signin" className="font-medium text-indigo-600 hover:text-indigo-500">
-              Sign in
-            </a>
-          </p>
+          <h2 className="mt-6 text-center text-3xl font-bold text-white">Create Account</h2>
+      
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
          
@@ -125,13 +126,27 @@ function SignUpPage() {
           onChange={handleChange('password')}
           placeholder="Password"
           onBlur={handleBlur('password')}
-          className="w-[90%] p-1 outline-none rounded-md shadow-sm px-3 py-2 text-gray-700 focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm"
+          className="w-full p-1 outline-none rounded-md shadow-sm px-3 py-2 text-gray-700 focus:ring-indigo-500 focus:border-indigo-500 block sm:text-sm"
         />
     
-          {!showPassword?<FaRegEye onClick={()=>{setShowPassword(!showPassword)}}/>:<FaRegEyeSlash onClick={()=>{setShowPassword(!showPassword)}}/>}
+         
           </div>
-          
+          <div className="flex flex-row justify-between items-center" >
           <p className="text-xs text-red-600">{errors.password && touched.password ? `${errors.password}` : ""}</p>
+          
+          <div>{
+            !showPassword?
+            <div className="flex flex-row space-x-3 my-1">
+            <FaRegEye onClick={()=>{setShowPassword(!showPassword)}} className="text-grey "/>
+            <p className="text-grey text-xs">Show Password</p></div>
+
+            :
+            <div className="flex flex-row space-x-3 my-1">
+            <FaRegEyeSlash onClick={()=>{setShowPassword(!showPassword)}} className="text-grey "/>
+            <p className="text-grey text-xs">Hide Password</p></div>
+          }
+            </div>
+          </div>
           </div>
 
           <button
@@ -144,7 +159,16 @@ function SignUpPage() {
       </div>
     </div>
     )}
+    
       </Formik>
+      <p className=" text-center text-sm text-grey">
+      Already have an account?
+      <a href="/signin" className="font-medium text-white hover:text-grey ml-2">
+        Sign in
+      </a>
+    </p>
+      <Footer/>
+    </div>
   );
 }
 
