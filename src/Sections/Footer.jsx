@@ -14,7 +14,7 @@ function Footer() {
   
       <div className='items-start justify-center flex flex-col w-[90%] mb-5 tablet:mb-0 tablet:w-[30%] space-y-2'>
     
-    <p className='text-sm text-gray-400 text-start w-[70%]'>Building Your AI Ideas Into Reality</p>
+    <p className='text-sm text-gray-400 text-start w-[70%]'>Building African commerce productively</p>
     <p className='text-sm text-gray-400'>&copy; Copyright {year}</p>
     </div>
     <div className='items-start justify-center flex flex-col w-[40%] bigphone:w-[15%] space-y-2 mb-5 phone:mb-0'>

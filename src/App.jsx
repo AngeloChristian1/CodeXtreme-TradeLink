@@ -17,6 +17,9 @@ import SingleProductPage from './pages/SingleProductPage'
 import HomeProductPage from './pages/HomeProductsPage'
 import Cart from './pages/Cart'
 import CartPage from './pages/CartPage'
+import AboutUsPage from './pages/AboutUsPage'
+import ServicesPage from './pages/ServicesPage'
+import ContactUsPage from './pages/ContactUsPage'
 
 function ScrollToTopOnPageChange() {
   const { pathname } = useLocation();
@@ -39,6 +42,9 @@ function App() {
     <Route  path="/signup" element={<SignUpPage />}/>
     <Route  path="/products" element={<HomeProductPage/>}/>
     <Route  path="/profile" element={<ProfilePage/>}/>
+    <Route  path="/about" element={<AboutUsPage/>}/>
+    <Route  path="/services" element={<ServicesPage/>}/>
+    <Route  path="/contact" element={<ContactUsPage/>}/>
     <Route  path="/register-company" element={<RegisterCompany />}/>
     <Route  path="/cart" element={<CartPage />}/>
     <Route path='/user' element={<User/>}> 

@@ -31,7 +31,7 @@ function SideBar() {
   return (
     <div className="bg-dark text-gray-100 p-4 m-1 rounded-xl flex flex-col justify-between">
     <div className="mb-6 flex flex-col items-center justify-center ">
-    <Link to={'/'} className='font-bold text-lg text-white'>Trade<span className='text-grey text-lg' > Link</span></Link>
+    <Link to={'/'} className='font-bold text-lg text-white'>Producer<span className='text-grey text-lg' > Connect</span></Link>
     </div>
 
     <div className='flex flex-col space-y-5'>
