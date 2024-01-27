@@ -29,7 +29,7 @@ function Navbar(props) {
     <Link to="/contact"><p className='text-sm cursor-pointer  rounded-full py-[3px] px-3 text-white' id={active ==="Contact"?'active':""}> Contact</p></Link>
     <Link to="/about"><p className='text-sm cursor-pointer  rounded-full py-[3px] px-3 text-white' id={active ==="About"?'active':""}> About Us</p></Link>
     </div>
-   {Profile? <div className='flex flex-row'>
+   {!Profile? <div className='flex flex-row'>
     <Link to="/signin" smooth><button className='hidden tablet:flex text-white text-xs p-2 px-4  rounded-full text-center items-center justify-center'>Login</button></Link>
     <Link to="/signup" smooth><button className='hidden tablet:flex text-dark text-bold text-xs p-2 px-4 bg-white rounded-full text-center items-center justify-center'>Register</button></Link>
     
