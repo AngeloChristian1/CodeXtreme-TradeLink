@@ -1,10 +1,12 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
 
 export default defineConfig({
-  plugins: [vue()],
-  eslint: {
-    enable: true,
-    configFile: '.eslintrc.json', // Point to the new configurationfile
-},
-});
+  jsxInject: `import * as ReactDOM from 'react-dom';`,
+  plugins: [
+    react(),
+  ],
+  // base: "/the-Artemis-Website-V2/"
+  
+})

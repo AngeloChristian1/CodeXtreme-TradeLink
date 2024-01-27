@@ -15,6 +15,8 @@ import DashBoard from './pages/DashBoard'
 import SingleOrder from './pages/SingleOrder'
 import SingleProductPage from './pages/SingleProductPage'
 import HomeProductPage from './pages/HomeProductsPage'
+import Cart from './pages/Cart'
+import CartPage from './pages/CartPage'
 
 function ScrollToTopOnPageChange() {
   const { pathname } = useLocation();
@@ -28,16 +30,17 @@ function ScrollToTopOnPageChange() {
 function App() {
 
   return (
-    <Router base="/the-Artemis-Website-V2/">
+    <Router base="/CodeXtreme-TradeLink">
     <ScrollToTopOnPageChange />
     <Routes  >
     
     <Route index  path="/" element={<HomePage />}/>
     <Route  path="/signin" element={<LoginPage />}/>
     <Route  path="/signup" element={<SignUpPage />}/>
-    <Route  path="/products" element={<HomeProductPage />}/>
+    <Route  path="/products" element={<HomeProductPage/>}/>
     <Route  path="/profile" element={<ProfilePage/>}/>
     <Route  path="/register-company" element={<RegisterCompany />}/>
+    <Route  path="/cart" element={<CartPage />}/>
     <Route path='/user' element={<User/>}> 
           <Route path='' element={<DashBoard/>}/>     
           <Route path='profile' element={<ProfilePage/>}/>
