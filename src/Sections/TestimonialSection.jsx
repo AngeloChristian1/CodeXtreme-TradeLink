@@ -4,6 +4,9 @@ import TestimonialCard from '../components/TestimonialCard'
 import HomeSection from './HomeSection'
 import { CiCoinInsert } from 'react-icons/ci'
 import person from '../assets/images/person.webp'
+import { MdKeyboardArrowUp } from "react-icons/md";
+import { MdKeyboardArrowDown } from "react-icons/md";
+
 function TestimonialSection() {
    
   return (
@@ -50,6 +53,10 @@ function TestimonialSection() {
     text="We craft visually stunning, unforgettable experiences with responsive design at the forefront."
     />
 
+    <div className='absolute bottom-1 right-1 p-1 bg-darkest rounded'>
+    <MdKeyboardArrowUp className='text-xl bg-dark rounded text-grey '/>
+    <MdKeyboardArrowDown className='text-xl bg-dark rounded text-grey mt-1'/>
+    </div>
     </div>
    </div>
 

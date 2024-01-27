@@ -38,7 +38,7 @@ const signUpSchema = yup.object().shape({
     .min(5, 'Password must contain at least 8 characters'),
 });
 
-function SignUpPage() {
+function RegisterCompany() {
     const [showPassword, setShowPassword] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
 
@@ -85,11 +85,9 @@ function SignUpPage() {
     <div className="min-h-[70vh] flex items-center justify-center  px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-4">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-bold text-white">Create Account</h2>
+          <h2 className="mt-6 text-center text-3xl font-bold text-white">Register a company</h2>
         </div>
-        <div className="bg-darker p-2  border-l-4 border-white rounded-full">
-        <p className="font-semibold text-grey text-sm">Want to register a company <Link to='/register-company' className="text-white text-sm">Click Here</Link></p>
-        </div>
+  
         <form className="pt-4 space-y-6" onSubmit={handleSubmit}>
          
           <div>
@@ -98,7 +96,7 @@ function SignUpPage() {
           name="username"
           value={values.name}
           onChange={handleChange('name')}
-          placeholder="Username"
+          placeholder="Company Name"
           onBlur={handleBlur('name')}
           className="rounded-2xl shadow-sm px-4 bg-dark text-white py-3  focus:ring-darker focus:border-darkest block w-full sm:text-sm"
         />
@@ -111,7 +109,7 @@ function SignUpPage() {
           name="email"
           value={values.email}
           onChange={handleChange('email')}
-          placeholder="Email"
+          placeholder="Company Email"
           onBlur={handleBlur('email')}
           className="rounded-2xl shadow-sm px-4 bg-dark text-white py-3  focus:ring-darker focus:border-darkest block w-full sm:text-sm"
         />
@@ -156,7 +154,7 @@ function SignUpPage() {
           type="submit"
           className="rounded-2xl font-bold shadow-sm px-4 bg-white text-darkest  py-3  focus:ring-darker focus:border-darkest block w-full sm:text-sm"
         >
-         {isLoading?"Loading..." :'Sign Up'}
+         {isLoading?"Loading..." :'Register'}
         </button>
         </form>
       </div>
@@ -165,7 +163,7 @@ function SignUpPage() {
     
       </Formik>
       <p className=" text-center text-sm text-grey my-3">
-      Already have an account?
+      Already registered?
       <a href="/signin" className="font-medium text-white hover:text-grey ml-2">
         Sign in
       </a>
@@ -175,4 +173,4 @@ function SignUpPage() {
   );
 }
 
-export default SignUpPage;
+export default RegisterCompany;
