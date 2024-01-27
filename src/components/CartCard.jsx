@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import product from "../assets/images/product.webp";
+import productImage from "../assets/images/product.webp";
 
 function CartCard(props) {
   const [cart, setCart] = useState([]);
@@ -46,7 +46,7 @@ function CartCard(props) {
   return (
     <div className="bg-dark rounded-2xl  basis-[70%] m-2 flex flex-row items-center justify-center space-y-4 p-2">
       <div className="bg-darkes p-[1px] w-[30%]  rounded-2xl">
-        <img src={product} className="h-36 w-[100%] object-cover rounded-2xl" />
+        <img src={productImage} className="h-36 w-[100%] object-cover rounded-2xl" />
       </div>
       <div className="flex flex-col items-start justify-start space-y-2 p-3">
         <h3 className="font-semibold text-white ">{props.product.name}</h3>

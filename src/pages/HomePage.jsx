@@ -11,7 +11,7 @@ function HomePage() {
 
   return (
     <div className="bg-darkest  p-5 h-full">
-      <Navbar/>
+      <Navbar activeLink='Home'/>
       <HomeSection/>
       <WhatWeDoSection/>
       <OurProcessSection/>

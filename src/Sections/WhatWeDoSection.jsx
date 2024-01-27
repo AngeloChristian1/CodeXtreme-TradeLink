@@ -16,7 +16,7 @@ function WhatWeDoSection() {
 
     <div className='flex flex-row'>
     <div className='my-2 w-[50%]'><h3 className='text-4xl text-white  font-bold'>Let us make your business a sucess</h3></div>
-    <div className='my-4 w-[50%]'><p className='text-base text-grey'>Trade Link is your partner in digital innovation. We fuse strategic thinking with standout design and development to deliver uniquely tailored solutions.</p></div>
+    <div className='my-4 w-[50%]'><p className='text-base text-grey'>Producer Connect is your partner in digital innovation. We fuse strategic thinking with standout design and development to deliver uniquely tailored solutions.</p></div>
 
     </div>
 

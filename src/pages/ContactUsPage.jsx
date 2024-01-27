@@ -6,14 +6,13 @@ import WhatWeDoSection from '../Sections/WhatWeDoSection';
 import Footer from '../Sections/Footer';
 import OurProcessSection from '../Sections/OurProcessSection';
 import TestimonialSection from '../Sections/TestimonialSection';
-import HomeProductSection from '../Sections/HomeProductSection';
 
-function HomeProductPage() {
+function ContactUsPage() {
 
   return (
     <div className="bg-darkest  p-5 h-full">
-      <Navbar activeLink='Products'/>
-      <HomeProductSection/>
+      <Navbar activeLink='Contact'/>
+      <HomeSection/>
       <WhatWeDoSection/>
       <OurProcessSection/>
       <TestimonialSection/>
@@ -29,4 +28,4 @@ function HomeProductPage() {
   );
 }
 
-export default HomeProductPage;
+export default ContactUsPage;

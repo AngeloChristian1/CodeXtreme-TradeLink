@@ -11,7 +11,7 @@ function HomeSection() {
     <div className='rounded-full py-[5px] px-4 bg-darkest w-auto rounded-bl-none my-2'><p className='text-white text-xs'>Welcome</p></div>
 
     <div className='my-2'><h3 className='text-5xl text-white  font-bold'>Let us make your business a sucess</h3></div>
-    <div className='my-4'><p className='text-lg text-grey'>Trade Link is your partner in digital innovation. We fuse strategic thinking with standout design and development to deliver uniquely tailored solutions.</p></div>
+    <div className='my-4'><p className='text-lg text-grey'>Producer Connect is your partner in digital innovation. We fuse strategic thinking with standout design and development to deliver uniquely tailored solutions.</p></div>
     
     <div className='my-2 flex flex-row space-x-2'>
     <Link to={''} className='rounded-full py-3 px-5 font-semibold bg-white text-darkest'>Let's Get Started</Link>

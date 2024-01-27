@@ -6,16 +6,15 @@ import WhatWeDoSection from '../Sections/WhatWeDoSection';
 import Footer from '../Sections/Footer';
 import OurProcessSection from '../Sections/OurProcessSection';
 import TestimonialSection from '../Sections/TestimonialSection';
-import HomeProductSection from '../Sections/HomeProductSection';
 
-function HomeProductPage() {
+function AboutUsPage() {
 
   return (
     <div className="bg-darkest  p-5 h-full">
-      <Navbar activeLink='Products'/>
-      <HomeProductSection/>
+      <Navbar activeLink='About'/>
+     
       <WhatWeDoSection/>
-      <OurProcessSection/>
+ 
       <TestimonialSection/>
 
       <div className='flex flex-row bg-dark rounded-2xl p-10 justify-between' >
@@ -29,4 +28,4 @@ function HomeProductPage() {
   );
 }
 
-export default HomeProductPage;
+export default AboutUsPage;
